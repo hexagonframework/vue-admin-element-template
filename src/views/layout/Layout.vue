@@ -2,7 +2,7 @@
     <div class="app-wrapper" :class="{hideSidebar:!sidebar.opened}">
         <navbar/>
         <div class="sidebar-wrapper">
-            <div class="logo-container">Manage Backend</div>
+            <div class="logo-container"><span>Manage Backend</span></div>
             <sidebar class="sidebar-container" />
         </div>
         <div class="main-container">
@@ -43,6 +43,9 @@
                 transform: translate(-140px, 0);
                 .sidebar-container {
                     transform: translate(132px, 0);
+                }
+                .logo-container span {
+                    visibility: hidden;
                 }
                 &:hover {
                     transform: translate(0, 0);
