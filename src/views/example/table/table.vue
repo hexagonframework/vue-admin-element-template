@@ -14,26 +14,24 @@
         </el-option>
       </el-select>
 
-      <el-select @change='handleFilter' style="width: 120px" class="filter-item" v-model="listQuery.sort" placeholder="排序">
-        <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key">
-        </el-option>
-      </el-select>
-
       <el-button class="filter-item" type="primary" v-waves icon="search" @click="handleFilter">搜索</el-button>
       <el-button class="filter-item" style="margin-left: 10px;" @click="handleCreate" type="primary" icon="edit">添加</el-button>
       <el-button class="filter-item" type="primary" icon="document" @click="handleDownload">导出</el-button>
       <el-checkbox class="filter-item" @change='tableKey=tableKey+1' v-model="showAuditor">显示审核人</el-checkbox>
     </div>
 
-    <el-table :key='tableKey' :data="list" v-loading.body="listLoading" border fit highlight-current-row style="width: 100%">
+    <el-table :key='tableKey' :data="list" v-loading.body="listLoading" border fit highlight-current-row style="width: 100%" @sort-change="handleSortChange">
+      
+      <el-table-column type="selection" width="55">
+      </el-table-column>
 
-      <el-table-column align="center" label="序号" width="65">
+      <el-table-column align="center" label="序号" width="100" sortable="custom" prop="id">
         <template scope="scope">
           <span>{{scope.row.id}}</span>
         </template>
       </el-table-column>
 
-      <el-table-column width="180px" align="center" label="时间">
+      <el-table-column width="180px" align="center" label="时间" sortable="custom" prop="timestamp">
         <template scope="scope">
           <span>{{scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}')}}</span>
         </template>
@@ -277,6 +275,22 @@
           });
           const index = this.list.indexOf(row);
           this.list.splice(index, 1);
+        },
+        handleSortChange(sort) {
+          console.log(`排序属性: ${sort.prop}`);
+          console.log(`排序: ${sort.order}`);
+          if(sort.prop != null){
+              if(sort.order=='descending'){
+                  this.listQuery.sort = '-' + sort.prop;
+              }
+              else{
+                  this.listQuery.sort = '' + sort.prop;
+              }
+          }
+          else{
+              this.listQuery.sort = '';
+          }
+          this.getList()
         },
         create() {
           this.temp.id = parseInt(Math.random() * 100) + 1024;

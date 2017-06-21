@@ -5,7 +5,8 @@
                 <slot></slot>
             </div>
         </div>
-        <img class="pan-thumb" :src="image">
+        <img class="pan-thumb" v-if="image" :src="image">
+        <img class="pan-thumb" v-if="!image" src="~assets/defaultavatar.jpg">
     </div>
 </template>
 <script>
