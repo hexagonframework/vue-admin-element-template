@@ -1,11 +1,12 @@
 <template>
     <div class="app-wrapper" :class="{hideSidebar:!sidebar.opened}">
-        <Navbar/>
+        <navbar/>
         <div class="sidebar-wrapper">
-            <Sidebar class="sidebar-container" />
+            <div class="logo-container">Manage Backend</div>
+            <sidebar class="sidebar-container" />
         </div>
         <div class="main-container">
-            <App-main/>
+            <app-main/>
         </div>
     </div>
 </template>
@@ -50,6 +51,9 @@
                     }
                 }
             }
+            .navbar {
+                left: 40px;
+            }
             .main-container{
                 margin-left: 40px;
             }
@@ -57,17 +61,24 @@
         .sidebar-wrapper {
             width: 180px;
             position: fixed;
-            top: 50px;
+            top: 0;
             bottom: 0;
             left: 0;
             z-index: 1001;
             overflow: hidden;
             transition: all .28s ease-out;
         }
+        .logo-container {
+            line-height: 58px;
+            height: 50px;
+            width: 180px;
+            padding: 0 20px; 
+            background-color: #eef1f6;
+        }
         .sidebar-container {
             transition: all .28s ease-out;
             position: absolute;
-            top: 0;
+            top: 50px;
             bottom: 0;
             left: 0;
             right: -17px;
