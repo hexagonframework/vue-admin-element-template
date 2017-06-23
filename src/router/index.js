@@ -18,12 +18,10 @@ const Err404 = () => import('../views/error/404');
 const Err401 = () => import('../views/error/401');
 
 /* example*/
-const DynamicTable = () => import('../views/example/table/dynamictable');
 const Table = () => import('../views/example/table/table');
 const DragTable = () => import('../views/example/table/dragTable');
 const InlineEditTable = () => import('../views/example/table/inlineEditTable');
 
-const Form = () => import('../views/example/form');
 const Tab = () => import('../views/example/tab/index');
 
 
@@ -67,6 +65,7 @@ export const asyncRouterMap = [
     redirect: 'noredirect',
     name: '表格实例',
     icon: 'zonghe',
+    meta: { role: ['admin'] },
     children: [
       { path: 'dragtable', component: DragTable, name: '拖拽table' },
       { path: 'inline_edit_table', component: InlineEditTable, name: 'table内编辑' },

@@ -5298,6 +5298,10 @@ voc@:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/voc/-/voc-0.5.0.tgz#be6ca7c76e4a57d930cc80f6b31fbd80ca86045c"
 
+vue-axios@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/vue-axios/-/vue-axios-2.0.2.tgz#0fe5a69f1edb09a1cd6c4a7f88c74d2fb7fe1778"
+
 vue-count-to@1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/vue-count-to/-/vue-count-to-1.0.5.tgz#6a4bad2e0c260ea8a3cdeb71bff75838d70c703a"
@@ -5359,6 +5363,10 @@ vuedraggable@2.13.1:
   resolved "https://registry.yarnpkg.com/vuedraggable/-/vuedraggable-2.13.1.tgz#dfe6e6983ec64eca767ced63b8e2b778c5ef61ac"
   dependencies:
     sortablejs "^1.6.0"
+
+vuex-router-sync@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/vuex-router-sync/-/vuex-router-sync-4.2.0.tgz#ebfc497d69b4018a9266a8f18b54bfca4d52125f"
 
 vuex@2.3.1:
   version "2.3.1"

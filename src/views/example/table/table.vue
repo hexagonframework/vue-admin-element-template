@@ -14,10 +14,13 @@
         </el-option>
       </el-select>
 
-      <el-button class="filter-item" type="primary" v-waves icon="search" @click="handleFilter">搜索</el-button>
-      <el-button class="filter-item" style="margin-left: 10px;" @click="handleCreate" type="primary" icon="edit">添加</el-button>
-      <el-button class="filter-item" type="primary" icon="document" @click="handleDownload">导出</el-button>
-      <el-checkbox class="filter-item" @change='tableKey=tableKey+1' v-model="showAuditor">显示审核人</el-checkbox>
+      <el-button class="filter-item" type="primary" v-waves icon="search" @click="handleFilter">查询</el-button>
+    </div>
+
+    <div class="action-container">
+      <el-button class="action-item" @click="handleCreate" type="primary" icon="edit">添加</el-button>
+      <el-button class="action-item" type="primary" icon="document" @click="handleDownload">导出</el-button>
+      <el-checkbox class="action-item" @change='tableKey=tableKey+1' v-model="showAuditor">显示审核人</el-checkbox>
     </div>
 
     <el-table :key='tableKey' :data="list" v-loading.body="listLoading" border fit highlight-current-row style="width: 100%" @sort-change="handleSortChange">
